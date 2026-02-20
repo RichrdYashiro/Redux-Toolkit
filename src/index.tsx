@@ -3,24 +3,19 @@ import ReactDOM from "react-dom/client";
 import "./index.scss";
 import { MainApp } from "./apps/MainApp";
 import reportWebVitals from "./reportWebVitals";
-import { contactStore } from "./store/contacStore";
-import { createContext } from "react";
+import { RootStore, StoreContext } from "./store/RootStore";
 
+const rootStore = new RootStore();
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
 );
 
-const StoreContext = createContext({ contactStore });
-
 root.render(
   <React.StrictMode>
-    <StoreContext.Provider value={{ contactStore }}>
+    <StoreContext.Provider value={rootStore}>
       <MainApp />
     </StoreContext.Provider>
   </React.StrictMode>,
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

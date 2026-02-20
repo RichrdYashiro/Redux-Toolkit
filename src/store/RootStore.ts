@@ -1,8 +1,10 @@
 import { makeAutoObservable } from "mobx"
-import {Contacts} from "./contacStore"
+import {Contacts} from "./contactStore"
 import {Groups} from "./groupStore"
+import { useContext, createContext } from "react";
 
-class RootStore {
+
+export class RootStore {
     contacts
     groups
     
@@ -13,4 +15,13 @@ class RootStore {
     }
 }
 
-export default new RootStore()
+export const StoreContext = createContext<RootStore | null>(null)
+
+
+export const useStore = () => {
+    const store = useContext(StoreContext)
+    if (!store) {
+        throw new Error("ОШИБКА")
+    }
+    return store 
+}
