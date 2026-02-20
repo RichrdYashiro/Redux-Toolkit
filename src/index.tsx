@@ -3,17 +3,20 @@ import ReactDOM from "react-dom/client";
 import "./index.scss";
 import { MainApp } from "./apps/MainApp";
 import reportWebVitals from "./reportWebVitals";
-import { Provider } from "react-redux";
-import store from "./store";
+import { contactStore } from "./store/contacStore";
+import { createContext } from "react";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
 );
+
+const StoreContext = createContext({ contactStore });
+
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <StoreContext.Provider value={{ contactStore }}>
       <MainApp />
-    </Provider>
+    </StoreContext.Provider>
   </React.StrictMode>,
 );
 
