@@ -2,7 +2,7 @@ import { FavoriteContactsDto } from './../types/dto/FavoriteContactsDto';
 import { makeAutoObservable } from "mobx"
 
 
-export class Favorite  {
+export class Favorites  {
 
     favorites:FavoriteContactsDto  = []
 

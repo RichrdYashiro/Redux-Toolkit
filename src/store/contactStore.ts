@@ -1,4 +1,4 @@
-import { ContactDto } from './../types/dto/ContactDto';
+import { ContactDto } from '../types/dto/ContactDto';
 import { makeAutoObservable, runInAction } from "mobx"
 
 
@@ -9,7 +9,7 @@ export class Contacts {
         makeAutoObservable(this)
     }
 
-   async getGroups(): Promise<void> {
+   async getContacts(): Promise<void> {
 
         try {
             const response = await fetch('https://mocki.io/v1/96b46f3d-e1a2-4648-88b7-4b47d44652d5', {
